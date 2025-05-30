@@ -1,6 +1,7 @@
 "use client"
 
-import { useFormState, useFormStatus } from "react-dom"
+import { useActionState } from "react"
+import { useFormStatus } from "react-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { joinWaitlist } from "@/app/actions"
@@ -29,7 +30,7 @@ function SubmitButton() {
 }
 
 export function WaitlistForm() {
-  const [state, formAction] = useFormState(joinWaitlist, initialState)
+  const [state, formAction] = useActionState(joinWaitlist, initialState)
   const formRef = useRef<HTMLFormElement>(null)
   const { toast } = useToast()
 
